@@ -202,14 +202,13 @@ def fix_entity(entity, attrs_with_md_id):
 ##########################
 # Main program starts here
 
-print len(sys.argv)
-
 if len(sys.argv) > 4 or len(sys.argv) < 3:
     print "invalid number of arguments, please check https://fiware-orion.readthedocs.io/en/master/admin/upgrading_crossing_2-2-0/index.html"
     sys.exit()
 
-DB = sys.argv[1]
-URI = sys.argv[2]
+URI = sys.argv[1]
+DB = sys.argv[2]
+
 FIX = 0
 
 if len(sys.argv) == 4:
@@ -222,6 +221,8 @@ if FIX == 1:
     autofix = 'as_new_attrs'
 if FIX == 2:
     autofix = 'as_metadata'
+
+print autofix
 
 # Warn user
 if autofix is not None:
